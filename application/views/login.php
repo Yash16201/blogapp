@@ -4,6 +4,7 @@
             <div class="col-md-5">
                 <?php if(isset($_SESSION['accountcreated'])) { $this->flash('accountcreated','alert alert-success'); } ?>
                 <h1>Login </h1>
+                <p>Dont have a account ? <span> <a href="http://localhost/blogapp/accountController/"> Create One </a>  </span> </p>
                 <form action="http://localhost/blogapp/accountController/login" method="post">
                     <div class="form-group">
                         <label class="form-label" for="name">Enter your email</label><br>
@@ -19,7 +20,7 @@
                             <?php if(!empty($myData['passwordErr'])): echo $myData['passwordErr']; endif; ?>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group my-3">
                     <button type="submit" class="btn btn-primary" name="submit">Submit</button>
                     </div>
                 </form>

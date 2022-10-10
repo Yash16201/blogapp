@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col-md-5">
                 <h1>SignUp</h1>
+                <p>Already have a account ! <span> <a href="http://localhost/blogapp/accountController/signin"> Login </a>  </span> </p>
                 <form action="http://localhost/blogapp/accountController/signUp" method="post">
                     <div class="form-group">
                         <label class="form-label" for="name">Enter your name</label><br>

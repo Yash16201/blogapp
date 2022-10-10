@@ -22,16 +22,22 @@
                 <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="http://localhost/blogapp/blog/">Home</a>
                 </li>
+                <!-- <?php if(!$this->getSession('userId')){ ?>
                 <li class="nav-item">
                 <a class="nav-link" href="http://localhost/blogapp/accountController/index">SignUp</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="http://localhost/blogapp/accountController/signin">SignIn</a>
                 </li>
+                <?php } ?> -->
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            
+            <form class="d-flex" method="post" action="http://localhost/blogapp/accountController/logout">
+              <?php if($this->getSession('userId')){ ?>
+                <button class="btn btn-outline-success" type="submit">Logout</button>
+              <?php } else { ?>
+                <button class="btn btn-outline-success" type="submit">Login</button>
+              <?php } ?>
             </form>
             </div>
         </div>
