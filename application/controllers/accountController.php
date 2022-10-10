@@ -87,7 +87,7 @@ class accountController extends framework{
     public function logout(){
         $this->unsetSession("userId");
         $this->destroy();
-        $this->setFlash("accountcreated","Logged out successfully");
+        $this->setFlash("loggedout","Logged out successfully");
         header("location: http://localhost/blogapp/accountController/signin");
     }
 }

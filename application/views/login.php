@@ -3,6 +3,7 @@
         <div class="row">
             <div class="col-md-5">
                 <?php if(isset($_SESSION['accountcreated'])) { $this->flash('accountcreated','alert alert-success'); } ?>
+                <?php if(isset($_SESSION['loggedout'])) { $this->flash('loggedout','alert alert-success'); } ?>
                 <h1>Login </h1>
                 <p>Dont have a account ? <span> <a href="http://localhost/blogapp/accountController/"> Create One </a>  </span> </p>
                 <form action="http://localhost/blogapp/accountController/login" method="post">

@@ -28,6 +28,22 @@ class framework{
         }
     }
 
+    public function file($inp_name,$name){
+        if($_SERVER['REQUEST_METHOD'] == "POST" || $_SERVER['REQUEST_METHOD'] == "post"){
+            return trim($_FILES[$inp_name][$name]);
+        }elseif($_SERVER['REQUEST_METHOD'] == "GET" || $_SERVER['REQUEST_METHOD'] == "get"){
+            return trim($_FILES[$inp_name][$name]);
+        }
+    }
+
+    public function tmp_file($inp_name,$tmp_name){
+        if($_SERVER['REQUEST_METHOD'] == "POST" || $_SERVER['REQUEST_METHOD'] == "post"){
+            return trim($_FILES[$inp_name][$tmp_name]);
+        }elseif($_SERVER['REQUEST_METHOD'] == "GET" || $_SERVER['REQUEST_METHOD'] == "get"){
+            return trim($_FILES[$inp_name][$tmp_name]);
+        }
+    }
+
     public function setSession($sessioname, $sessionvalue){
         if(!empty($sessioname) && !empty($sessionvalue)){
             $_SESSION[$sessioname] = $sessionvalue;
