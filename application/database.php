@@ -32,5 +32,9 @@ class database{
     public function fetchAll(){
         return $this->result->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function fetch(){
+        return $this->result->fetch(PDO::FETCH_OBJ);
+    }
 }
 ?>

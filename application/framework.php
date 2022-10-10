@@ -27,6 +27,42 @@ class framework{
             return trim($_GET[$inp_name]);
         }
     }
+
+    public function setSession($sessioname, $sessionvalue){
+        if(!empty($sessioname) && !empty($sessionvalue)){
+            $_SESSION[$sessioname] = $sessionvalue;
+        }
+    }
+
+    public function getSession($sessioname){
+        if(!empty($sessioname)){
+           return $_SESSION[$sessioname];
+        }
+    }
+
+    public function unsetSession($sessioname){
+        if(!empty($sessioname)){
+           unset($_SESSION[$sessioname]);
+        }
+    }
+
+    public function destroy(){
+        session_destroy();
+    }
+
+    public function setFlash($sessioname, $msg){
+        if(!empty($sessioname) && !empty($msg)){
+            $_SESSION[$sessioname] = $msg;
+        }
+    }
+    
+    public function flash($sessioname, $classname){
+        if(!empty($sessioname) && !empty($classname)){
+           echo "<div class='".$classname."'>'".$_SESSION[$sessioname]."'</div>";
+           unset($_SESSION[$sessioname]);
+        }
+    }
 }
 
 ?>
+
