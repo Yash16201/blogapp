@@ -45,7 +45,7 @@ class blog extends framework{
                         <td>
                             <a class="btn btn-success" href="http://localhost/blogapp/blog/myblogs/'.ucfirst($blogop->blog_id).'" role="button">View <span> 
                             <a class="btn btn-primary mx-2" href="http://localhost/blogapp/blog/edit/'.ucfirst($blogop->blog_id).'" role="button">Edit</a> </span> <span>
-                            <a class="btn btn-danger" href="http://localhost/blogapp/blog/delete/'.ucfirst($blog->blog_id).'" role="button">Delete</a>
+                            <a class="btn btn-danger" href="http://localhost/blogapp/blog/delete/'.ucfirst($blogop->blog_id).'" role="button">Delete</a>
                         </td>
                      </tr>
                      
