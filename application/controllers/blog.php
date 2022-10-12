@@ -11,6 +11,63 @@ class blog extends framework{
             header("location: http://localhost/blogapp/accountController/signin");
         }   
     }
+    public function blogsearch(){
+        $blogModel = $this->model('blogModel');
+        $author = $this->getSession('userId');
+        $status=1;
+        $output = '';
+        if($this->getSession('userId')){
+            $key = $this->input('key');
+            $finalkey= "%".$key."%";
+            $input = [$author,$status,$finalkey];
+            $fetch = $blogModel->searchBlog($input);
+            $output .= '
+            <table class="table mt-5">
+                <thead>
+                    <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+            ';
+            if(!empty($fetch)){
+                foreach($fetch as $blogop){
+                    $output .= '
+                    <tr>
+                        <td>
+                            <p>'.ucfirst($blogop->blog_title).'</p>
+                        </td>
+                        <td>
+                            <p>'.ucfirst($blogop->post_text).'</p>
+                        </td>
+                        <td>
+                            <a class="btn btn-success" href="http://localhost/blogapp/blog/myblogs/'.ucfirst($blogop->blog_id).'" role="button">View <span> 
+                            <a class="btn btn-primary mx-2" href="http://localhost/blogapp/blog/edit/'.ucfirst($blogop->blog_id).'" role="button">Edit</a> </span> <span>
+                            <a class="btn btn-danger" href="http://localhost/blogapp/blog/delete/'.ucfirst($blog->blog_id).'" role="button">Delete</a>
+                        </td>
+                     </tr>
+                     
+                    ';
+                }
+            }else{
+                $output .= '
+                    <tr>
+                        <td colspan="3" class="text-center"> No such data </td> 
+                    </tr>
+                ';
+            }
+            $output .= '
+                </tbody>
+                </table>
+            ';
+            print $output;
+
+        }else{
+            header("location: http://localhost/blogapp/accountController/signin");
+        }
+    }
     public function bloglist(){
         $blogModel = $this->model('blogModel');
         $author = $this->getSession('userId');
@@ -19,7 +76,7 @@ class blog extends framework{
             $limit = 4;
             $page = 0;
             $output = '';
-            $pageinp = $_POST['page'];
+            $pageinp = $this->input('page');
             if(isset($pageinp)){
                 $page = $pageinp;
             }else{
@@ -54,8 +111,7 @@ class blog extends framework{
                     <td>
                         <a class="btn btn-success" href="http://localhost/blogapp/blog/myblogs/'.ucfirst($blogop->blog_id).'" role="button">View <span> 
                         <a class="btn btn-primary mx-2" href="http://localhost/blogapp/blog/edit/'.ucfirst($blogop->blog_id).'" role="button">Edit</a> </span> <span>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"> Delete </button>
-                        </span> </a>
+                        <a class="btn btn-danger" href="http://localhost/blogapp/blog/delete/'.ucfirst($blogop->blog_id).'" role="button">Delete</a>
                     </td>
                  </tr>
                 ';

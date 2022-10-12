@@ -67,6 +67,12 @@ class blogModel extends database{
         }
     }
 
+    public function searchBlog($input){
+        if($this->Query("SELECT blog.*,blog_details.* FROM blog INNER JOIN blog_details ON blog.blog_id = blog_details.blog_id  WHERE blog.blog_author=? AND blog.status=? AND blog.blog_title LIKE ?   ",$input)){
+            $data =  $this->fetchAll();
+            return $data;
+        }
+    }
     public function deleteBlog($status,$id){
         if($this->Query("UPDATE blog_details SET status=? WHERE blog_id=?",[$status,$id])){
             if($this->Query("UPDATE blog SET status=? WHERE blog_id=?",[$status,$id])){
