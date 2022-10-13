@@ -1,4 +1,9 @@
-<?php include "layouts/header.php" ?>
+<?php 
+foreach($myData as $blog){
+    $title  = $blog->blog_title;
+}
+include "layouts/header.php" 
+?>
 <div class="container my-5">
 
 

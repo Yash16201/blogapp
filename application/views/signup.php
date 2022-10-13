@@ -1,4 +1,6 @@
-<?php include "layouts/header.php" ?>
+<?php 
+$title = "Register";
+include "layouts/header.php" ?>
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-5">

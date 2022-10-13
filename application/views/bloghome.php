@@ -1,4 +1,7 @@
-<?php include "layouts/header.php" ?>
+<?php 
+$title = "My Blogs";
+include "layouts/header.php" 
+?>
 <div class="container">
     <h1>My Blogs</h1>
     <?php if(isset($_SESSION['bloginserted'])) { $this->flash('bloginserted','alert alert-success'); } ?>

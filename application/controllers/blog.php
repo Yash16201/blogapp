@@ -3,9 +3,6 @@
 class blog extends framework{
     public function index(){
         if($this->getSession('userId')){
-            // $blogModel = $this->model('blogModel');
-            // $author = $this->getSession('userId');
-            // $data = $blogModel->fetchBlog($author);
             $this->view("bloghome");
         }else{
             header("location: http://localhost/blogapp/accountController/signin");
@@ -152,7 +149,7 @@ class blog extends framework{
 
             print $output;            
         }else{
-            // header("location: http://localhost/blogapp/accountController/signin");
+            header("location: http://localhost/blogapp/accountController/signin");
         } 
     }
     public function myblogs($id){

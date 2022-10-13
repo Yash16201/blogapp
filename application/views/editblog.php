@@ -1,4 +1,6 @@
-<?php include "layouts/header.php" ?>
+<?php 
+$title = "Edit Blog";
+include "layouts/header.php" ?>
 <div class="container my-5">
 
     <h3>Edit Blog</h3>

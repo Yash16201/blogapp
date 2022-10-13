@@ -1,4 +1,7 @@
-<?php include "layouts/header.php" ?>
+<?php 
+$title = "Add Blog";
+include "layouts/header.php" 
+?>
 <div class="container mt-5">
     <h3>Add New Blog</h3>
     <?php if(isset($_SESSION['accountcreated'])) { $this->flash('accountcreated','alert alert-success'); } ?>
