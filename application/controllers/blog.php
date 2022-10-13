@@ -33,20 +33,18 @@ class blog extends framework{
                 foreach($fetch as $blogop){
                     $output .= '
                     <tr>
-                        <td>
+                        <td width="20%">
                             <p>'.ucfirst($blogop->blog_title).'</p>
                         </td>
-                        <td>
+                        <td width="50%">
                             <p>'.ucfirst($blogop->post_text).'</p>
                         </td>
-                        <td>
+                        <td width="30%">
                             <a class="btn btn-success" href="http://localhost/blogapp/blog/myblogs/'.ucfirst($blogop->blog_id).'" role="button">View <span> 
                             <a class="btn btn-primary mx-2" href="http://localhost/blogapp/blog/edit/'.ucfirst($blogop->blog_id).'" role="button">Edit</a> </span> <span>
                             <a class="btn btn-danger" href="http://localhost/blogapp/blog/delete/'.ucfirst($blogop->blog_id).'" role="button">Delete</a>
                         </td>
-                     </tr>
-                     
-                    ';
+                    </tr> ';
                 }
             }else{
                 $output .= '
@@ -99,13 +97,13 @@ class blog extends framework{
             foreach($fetch['data'] as $blogop){
                 $output .= '
                 <tr>
-                    <td>
+                    <td width="20%">
                         <p>'.ucfirst($blogop->blog_title).'</p>
                     </td>
-                    <td>
+                    <td width="50%">
                         <p>'.ucfirst($blogop->post_text).'</p>
                     </td>
-                    <td>
+                    <td width="30%">
                         <a class="btn btn-success" href="http://localhost/blogapp/blog/myblogs/'.ucfirst($blogop->blog_id).'" role="button">View <span> 
                         <a class="btn btn-primary mx-2" href="http://localhost/blogapp/blog/edit/'.ucfirst($blogop->blog_id).'" role="button">Edit</a> </span> <span>
                         <a class="btn btn-danger" href="http://localhost/blogapp/blog/delete/'.ucfirst($blogop->blog_id).'" role="button">Delete</a>
